@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :authenticate, :only => [:show]
+
     def new
         @user = User.new
     end
@@ -14,7 +16,12 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
+        @years = Year.where(user: @user.id)
+    end
+
+    def authenticate
+        redirect_to login_path unless session[:user_id]
     end
 
     private

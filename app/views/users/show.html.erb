@@ -1,4 +1,7 @@
 <h1><%= @user.username %></h1>
 <h2>Total</h2>
 <h2>Years</h2>
-<p>Add Year</p>
+<% @years.each do |year| %>
+    <%= link_to "Year: #{year.number}", "/years/#{year.id}" %>
+<% end %>
+<%= link_to "Add Year", "/years/new" %>
