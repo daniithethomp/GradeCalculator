@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   get "/home", to: "sessions#home"
   get "/login", to: "sessions#login"
   post "/login", to: "sessions#create"
-  get "/logout", to: "sessions#logout"
-  post "/logout", to: "sessions#destroy"
+  get "/logout", to: "sessions#destroy"
 
   resources :users, only: [:new, :create, :edit, :update, :show, :destroy]
 

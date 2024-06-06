@@ -5,10 +5,15 @@ class SessionsController < ApplicationController
 
     if !!@user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_path(:id => @user.id)
     else
-      message = "Something went wrong"
+      message = "Invalid username or password"
       redirect_to login_path, notice: message
     end
+  end
+
+  def destroy
+    session.delete :user_id
+    redirect_to root_path
   end
 end
