@@ -2,6 +2,9 @@ source "http://rubygems.org"
 
 ruby "3.1.2"
 
+# gem irb now depends on psych, but version 5 will not bundle currently  
+gem "psych", "~> 4"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.3", ">= 7.1.3.4"
 
@@ -67,3 +70,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
