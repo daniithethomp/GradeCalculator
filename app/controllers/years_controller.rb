@@ -8,6 +8,7 @@ class YearsController < ApplicationController
 
   # GET /years/1 or /years/1.json
   def show
+    @modules = CourseModule.where(year_id: @year.id)
   end
 
   # GET /years/new

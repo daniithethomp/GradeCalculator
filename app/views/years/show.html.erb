@@ -8,3 +8,8 @@
 
   <%= button_to "Destroy this year", @year, method: :delete %>
 </div>
+
+<% @modules.each do |m| %>
+  <p><% m.module_name %></p>
+<% end %>
+<%= link_to "Add Module", new_course_module_path %>
