@@ -1,0 +1,27 @@
+<%= form_with(model: year) do |form| %>
+  <% if year.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(year.errors.count, "error") %> prohibited this year from being saved:</h2>
+
+      <ul>
+        <% year.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :year_number, style: "display: block" %>
+    <%= form.number_field :year_number %>
+  </div>
+
+  <div>
+    <%= form.label :user_id, style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

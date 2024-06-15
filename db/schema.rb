@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_174232) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_15_174811) do
+  create_table "course_modules", force: :cascade do |t|
+    t.string "module_name"
+    t.integer "year_id", null: false
+    t.integer "credits"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["year_id"], name: "index_course_modules_on_year_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -23,4 +32,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_174232) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "years", force: :cascade do |t|
+    t.integer "year_number"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_years_on_user_id"
+  end
+
+  add_foreign_key "course_modules", "years"
+  add_foreign_key "years", "users"
 end
