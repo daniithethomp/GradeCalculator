@@ -3,12 +3,23 @@ class YearsController < ApplicationController
 
   # GET /years or /years.json
   def index
-    @years = Year.all
+    @years = Year.where(user_id: current_user.id)
+    @year_scores = []
+    @years.each do |year|
+      total_score = 0
+      total_credits = helpers.get_total_year_credits(year)
+      modules = helpers.get_year_modules(year)
+      modules.each do |m|
+        score = helpers.get_module_score(m)
+        total_score += score * (m.credits / total_credits)
+      end
+      @year_scores.push(total_score)
+    end
   end
 
   # GET /years/1 or /years/1.json
   def show
-    @modules = CourseModule.where(year_id: @year.id)
+    @modules = helpers.get_year_modules(@year)
   end
 
   # GET /years/new

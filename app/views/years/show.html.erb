@@ -10,6 +10,6 @@
 </div>
 
 <% @modules.each do |m| %>
-  <p><% m.module_name %></p>
+  <p><%= link_to m.module_name, course_module_path(m) %></p>
 <% end %>
 <%= link_to "Add Module", new_course_module_path %>
