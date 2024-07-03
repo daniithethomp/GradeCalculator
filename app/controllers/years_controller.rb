@@ -20,6 +20,13 @@ class YearsController < ApplicationController
   # GET /years/1 or /years/1.json
   def show
     @modules = helpers.get_year_modules(@year)
+    @total_score = 0
+    total_credits = helpers.get_total_year_credits(@year)
+    modules = helpers.get_year_modules(@year)
+    modules.each do |m|
+      score = helpers.get_module_score(m)
+      @total_score += score * (m.credits / total_credits)
+    end
   end
 
   # GET /years/new
