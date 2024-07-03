@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_15_174811) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_03_222656) do
   create_table "course_modules", force: :cascade do |t|
     t.string "module_name"
     t.integer "year_id", null: false
@@ -18,6 +18,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_174811) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["year_id"], name: "index_course_modules_on_year_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string "name"
+    t.integer "course_module_id", null: false
+    t.integer "max_score"
+    t.float "earned_score"
+    t.boolean "is_threshold"
+    t.float "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_module_id"], name: "index_tests_on_course_module_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,5 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_15_174811) do
   end
 
   add_foreign_key "course_modules", "years"
+  add_foreign_key "tests", "course_modules"
   add_foreign_key "years", "users"
 end
