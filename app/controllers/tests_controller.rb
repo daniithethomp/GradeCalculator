@@ -13,6 +13,8 @@ class TestsController < ApplicationController
   # GET /tests/new
   def new
     @test = Test.new
+    @module_id = params["module_id"]
+    redirect_to :back if @module_id == nil
   end
 
   # GET /tests/1/edit

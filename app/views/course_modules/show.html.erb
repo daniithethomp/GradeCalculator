@@ -3,8 +3,14 @@
 <%= render @course_module %>
 
 <div>
-  <%= link_to "Edit this course module", edit_course_module_path(@course_module) %> |
+  <%= link_to "Edit", edit_course_module_path(@course_module) %> |
   <%= link_to "Back to course modules", course_modules_path %>
 
-  <%= button_to "Destroy this course module", @course_module, method: :delete %>
+  <%= button_to "Remove", @course_module, method: :delete %>
 </div>
+
+<% @module_tests.each do |t| %>
+  <p><%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %></p>
+<% end %>
+
+<%= link_to "Add test", new_test_path(:module_id => @course_module.id) %>
