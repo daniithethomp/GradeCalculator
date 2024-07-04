@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tests
+  resources :tests, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :course_modules
   resources :years
   devise_for :users

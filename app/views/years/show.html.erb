@@ -9,7 +9,7 @@
   <%= button_to "Destroy this year", @year, method: :delete %>
 </div>
 
-<p>Total score: <%= @total_score %>%</p>
+<p>Total score: <%= @total_score.round(2) %>%</p>
 
 <% @modules.each do |m| %>
   <p><%= link_to m.module_name, course_module_path(m) %></p>

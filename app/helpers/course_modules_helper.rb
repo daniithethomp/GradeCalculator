@@ -7,7 +7,7 @@ module CourseModulesHelper
         module_tests = get_module_tests(m)
         total_score = 0
         module_tests.each do |t|
-            total_score += get_test_score(t)
+            total_score += get_test_score_weighted(t)
         end
         return total_score
     end
