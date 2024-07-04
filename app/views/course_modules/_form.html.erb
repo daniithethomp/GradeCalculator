@@ -17,8 +17,11 @@
   </div>
 
   <div>
-    <%= form.label :year_id, style: "display: block" %>
-    <%= form.text_field :year_id %>
+    <% if @course_module.year_id.nil? %>
+      <%= form.hidden_field :year_id, value: @year_id %>
+    <% else %>
+      <%= form.hidden_field :year_id, value: @course_module.year_id %>
+    <% end %>
   </div>
 
   <div>

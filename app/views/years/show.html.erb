@@ -14,4 +14,4 @@
 <% @modules.each do |m| %>
   <p><%= link_to m.module_name, course_module_path(m) %></p>
 <% end %>
-<%= link_to "Add Module", new_course_module_path %>
+<%= link_to "Add Module", new_course_module_path(:year_id => @year.id) %>

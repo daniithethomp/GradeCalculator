@@ -6,7 +6,7 @@
 
   <p>
     <strong>Course module:</strong>
-    <%= test.course_module_id %>
+    <%= CourseModule.where(id: test.course_module_id).first.module_name %>
   </p>
 
   <p>

@@ -3,7 +3,7 @@ class CourseModulesController < ApplicationController
 
   # GET /course_modules or /course_modules.json
   def index
-    @course_modules = CourseModule.all
+    @course_modules = CourseModule.where(year_id: params[:year_id])
   end
 
   # GET /course_modules/1 or /course_modules/1.json
@@ -14,6 +14,8 @@ class CourseModulesController < ApplicationController
   # GET /course_modules/new
   def new
     @course_module = CourseModule.new
+    @year_id = params["year_id"]
+    redirect_to :back if @year_id == nil
   end
 
   # GET /course_modules/1/edit

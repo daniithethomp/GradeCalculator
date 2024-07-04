@@ -6,7 +6,7 @@
 
   <p>
     <strong>Year:</strong>
-    <%= course_module.year_id %>
+    <%= Year.where(id: course_module.year_id).first.year_number %>
   </p>
 
   <p>

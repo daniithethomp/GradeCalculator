@@ -17,7 +17,11 @@
   </div>
 
   <div>
-    <%= form.hidden_field :course_module_id, value: @module_id %>
+    <% if @test.course_module_id.nil? %>
+      <%= form.hidden_field :course_module_id, value: @module_id %>
+    <% else %>
+      <%= form.hidden_field :course_module_id, value: @test.course_module_id %>
+    <% end %>
   </div>
 
   <div>
