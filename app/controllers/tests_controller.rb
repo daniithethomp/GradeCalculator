@@ -8,6 +8,7 @@ class TestsController < ApplicationController
 
   # GET /tests/1 or /tests/1.json
   def show
+    @course_module = CourseModule.find(@test.course_module_id)
   end
 
   # GET /tests/new

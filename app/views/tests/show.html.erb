@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this test", edit_test_path(@test) %> |
-  <%= link_to "Back", :back %>
+  <%= link_to "Back", course_module_path(@course_module) %>
 
   <%= button_to "Destroy this test", @test, method: :delete %>
 </div>

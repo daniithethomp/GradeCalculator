@@ -9,6 +9,7 @@ class CourseModulesController < ApplicationController
   # GET /course_modules/1 or /course_modules/1.json
   def show
     @module_tests = helpers.get_module_tests(@course_module)
+    @year = Year.find(@course_module.year_id)
   end
 
   # GET /course_modules/new

@@ -25,7 +25,7 @@ class YearsController < ApplicationController
     modules = helpers.get_year_modules(@year)
     modules.each do |m|
       score = helpers.get_module_score(m)
-      @total_score += score * (m.credits / total_credits)
+      @total_score += score * (m.credits.to_f / total_credits.to_f)
     end
   end
 
