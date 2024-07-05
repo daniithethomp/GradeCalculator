@@ -1,0 +1,60 @@
+:root {
+    --primary-color: rgb(34, 95, 248);
+}
+
+#grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.left-side {
+    background-color: white;
+    grid-column: 1;
+    text-align: center;
+    height: 100vh;
+}
+
+.right-side {
+    grid-column: 2;
+    height: 100vh;
+    align-content: center;
+    padding: 1rem;
+}
+
+.form-wrapper {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.field {
+    padding: 1rem;
+}
+
+.field label {
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.actions {
+    text-align: center;
+    
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    padding: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    width: fit-content;
+    margin: 0.5rem auto;
+    border-radius: .5rem;
+}

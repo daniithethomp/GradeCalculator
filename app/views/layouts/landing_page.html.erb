@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GradeCalculator</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "landing_page", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <p class="alert"><%= alert %></p>
+    <div id="grid-wrapper">
+        <div class="left-side">
+            <h1>GradeCalculator</h1>
+            <p>Calculate your grades with ease</p>
+        </div>
+        <div class="right-side">
+            <%= yield %>
+        </div>
+    </div>
+  </body>
+</html>
