@@ -1,3 +1,4 @@
+
 <%= form_with(model: test) do |form| %>
   <% if test.errors.any? %>
     <div style="color: red">
@@ -24,19 +25,24 @@
     <% end %>
   </div>
 
-  <div>
+  <div id="max_score_div">
     <%= form.label :max_score, style: "display: block" %>
     <%= form.number_field :max_score %>
   </div>
 
-  <div>
+  <div id="earned_score_div">
     <%= form.label :earned_score, style: "display: block" %>
     <%= form.text_field :earned_score %>
   </div>
 
   <div>
-    <%= form.label :is_threshold, style: "display: block" %>
+    <%= form.label :is_threshold?, style: "display: block" %>
     <%= form.check_box :is_threshold %>
+  </div>
+
+  <div id="is_pass_div" style="display: none">
+    <%= form.label :pass?, style: "display: block" %>
+    <%= form.check_box :is_pass %>
   </div>
 
   <div>
