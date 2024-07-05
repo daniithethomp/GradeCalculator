@@ -2,6 +2,8 @@
 
 <%= render @course_module %>
 
+<p><%= get_module_score(@course_module) %>
+
 <div>
   <%= link_to "Edit", edit_course_module_path(@course_module) %> |
   <%= link_to "Back", year_path(@year) %>
@@ -10,7 +12,13 @@
 </div>
 
 <% @module_tests.each do |t| %>
-  <p><%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %></p>
+  <p>
+    <% if t.is_threshold %>
+      <%= link_to "#{t.name} - #{t.pass ? "PASS" : "FAIL"}", test_path(t) %>
+    <% else %>
+      <%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %>
+    <% end %>
+  </p>
 <% end %>
 
 <%= link_to "Add test", new_test_path(:module_id => @course_module.id) %>

@@ -68,6 +68,6 @@ class TestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_params
-      params.require(:test).permit(:name, :course_module_id, :max_score, :earned_score, :is_threshold, :weight)
+      params.require(:test).permit(:name, :course_module_id, :max_score, :earned_score, :is_threshold, :pass, :weight)
     end
 end

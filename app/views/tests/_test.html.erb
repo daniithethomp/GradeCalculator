@@ -24,6 +24,13 @@
     <%= test.is_threshold %>
   </p>
 
+  <% if test.is_threshold %>
+    <p>
+      <strong>Pass:</strong>
+      <%= test.pass %>
+    </p>
+  <% end %>
+
   <p>
     <strong>Weight:</strong>
     <%= test.weight %>
