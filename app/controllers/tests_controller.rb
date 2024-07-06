@@ -23,11 +23,13 @@ class TestsController < ApplicationController
   # GET /tests/1/edit
   def edit
     @course_module = CourseModule.find(@test.course_module_id)
+    @test.current_user_id = current_user.id
   end
 
   # POST /tests or /tests.json
   def create
     @test = Test.new(test_params)
+    @test.current_user_id = current_user.id
 
     respond_to do |format|
       if @test.save
@@ -42,6 +44,8 @@ class TestsController < ApplicationController
 
   # PATCH/PUT /tests/1 or /tests/1.json
   def update
+    @course_module = CourseModule.find(@test.course_module_id)
+    @test.current_user_id = current_user.id
     respond_to do |format|
       if @test.update(test_params)
         format.html { redirect_to test_url(@test), notice: "Test was successfully updated." }

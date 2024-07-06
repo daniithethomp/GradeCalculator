@@ -5,7 +5,7 @@
   <div class="score-bar">
     <div class="bar-background">
       
-      <div class="bar" style="width: <%= @total_score.round(2) %>%;">
+      <div class="bar" style="width: <%= @total_score.round(2) %>%; background: var(--<%= get_score_colour(@total_score.round(2)) %>-color)">
         <p><%= @total_score.round(2) %>%</p>
       </div>
       <div class="target-mark" style="margin: 0 0 0 <%= current_user.target_score %>%" ></div>

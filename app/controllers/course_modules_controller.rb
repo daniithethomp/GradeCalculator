@@ -28,6 +28,7 @@ class CourseModulesController < ApplicationController
   # POST /course_modules or /course_modules.json
   def create
     @course_module = CourseModule.new(course_module_params)
+    @course_module.current_user_id = current_user.id
 
     respond_to do |format|
       if @course_module.save
@@ -42,6 +43,8 @@ class CourseModulesController < ApplicationController
 
   # PATCH/PUT /course_modules/1 or /course_modules/1.json
   def update
+    @course_module = CourseModule.find(params[:id])
+    @course_module.current_user_id = current_user.id
     respond_to do |format|
       if @course_module.update(course_module_params)
         format.html { redirect_to course_module_url(@course_module), notice: "Course module was successfully updated." }
