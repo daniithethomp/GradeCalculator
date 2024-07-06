@@ -1,3 +1,4 @@
+<%= javascript_include_tag "targetscore", "data-turbo-track": "reload" %>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -31,6 +32,17 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Target score: " %><span id="target_score_value"></span>
+    <div class="slider-container">
+      <%= f.range_field :target_score, list: "values", min: "0", max: "100", value: @user.target_score, step: 10, class: "slider", id: "target_score"%>
+      <datalist id="values">
+      <option value="40" label="Pass"></option>
+      <option value="50" label="2:2"></option>
+      <option value="60" label="2:1"></option>
+      <option value="70" label="First"></option>
+    </datalist>
+    </div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
