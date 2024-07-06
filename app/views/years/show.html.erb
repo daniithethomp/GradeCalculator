@@ -12,6 +12,18 @@
 <p>Total score: <%= @total_score.round(2) %>%</p>
 
 <% @modules.each do |m| %>
-  <p><%= link_to m.module_name, course_module_path(m) %></p>
+  <div class="module">
+    <p>
+      <span class="module-name"><%= h "#{m.module_name}" %></span>
+      <%= link_to "Show", course_module_path(m), class: "utility-button", style: "display: inline"%>
+    </p>
+    <div class="score-bar">
+      <div class="bar-background">
+        <div class="bar" style="width: <%= get_module_score(m).round(2) %>%;">
+          <p><%= get_module_score(m).round(2)%>%</p>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-<%= link_to "Add Module", new_course_module_path(:year_id => @year.id) %>
+<%= link_to "Add Module", new_course_module_path(:year_id => @year.id), class: "utility-button" %>

@@ -13,3 +13,65 @@
  *= (removed to have separate css for landing page) require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary-color: rgb(34, 95, 248);
+    --background-color: rgb(222, 222, 222);
+    font-family: poppins;
+}
+
+.module {
+    background-color: var(--background-color);
+    width: 80vw;
+    padding: 1rem;
+    margin: 1rem auto;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.score-bar {
+    width: 100%;
+    height: 20px;
+}
+
+.bar-background {
+    background: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.bar {
+    width: 80.84%;
+    background: green;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.bar p {
+    float: right;
+}
+
+.module-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.module-name a {
+    text-decoration: none;
+    color: black;
+}
+
+.utility-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}

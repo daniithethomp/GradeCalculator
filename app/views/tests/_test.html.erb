@@ -10,30 +10,30 @@
   </p>
 
   <p>
-    <strong>Max score:</strong>
-    <%= test.max_score %>
-  </p>
-
-  <p>
-    <strong>Earned score:</strong>
-    <%= test.earned_score %>
-  </p>
-
-  <p>
     <strong>Is threshold:</strong>
     <%= test.is_threshold %>
   </p>
 
-  <% if test.is_threshold %>
+  <% unless test.is_threshold %>
+    <p>
+      <strong>Max score:</strong>
+      <%= test.max_score %>
+    </p>
+
+    <p>
+      <strong>Earned score:</strong>
+      <%= test.earned_score %>
+    </p>
+
+    <p>
+      <strong>Weight:</strong>
+      <%= test.weight %>
+    </p>
+  <% else %>
     <p>
       <strong>Pass:</strong>
       <%= test.pass %>
     </p>
   <% end %>
-
-  <p>
-    <strong>Weight:</strong>
-    <%= test.weight %>
-  </p>
 
 </div>
