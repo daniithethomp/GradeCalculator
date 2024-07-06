@@ -2,6 +2,8 @@ source "http://rubygems.org"
 
 ruby "3.1.2"
 
+gem "cancancan"
+
 gem 'devise', '~> 4.9', '>= 4.9.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"

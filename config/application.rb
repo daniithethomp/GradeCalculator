@@ -28,6 +28,7 @@ module GradeCalculator
     #   Devise::RegistrationsController.layout "landing_page" 
     #   Devise::SessionsController.layout "landing_page"
     # end
-
   end
 end
+
+require "#{Rails.root}/app/models/ability.rb"

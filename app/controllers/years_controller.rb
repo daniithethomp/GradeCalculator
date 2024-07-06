@@ -1,5 +1,7 @@
 class YearsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_year, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /years or /years.json
   def index
@@ -36,6 +38,8 @@ class YearsController < ApplicationController
 
   # GET /years/1/edit
   def edit
+    @year = Year.find(params[:id])
+    authorize! :update, @year
   end
 
   # POST /years or /years.json
@@ -55,6 +59,7 @@ class YearsController < ApplicationController
 
   # PATCH/PUT /years/1 or /years/1.json
   def update
+    authorize! :update, @year 
     respond_to do |format|
       if @year.update(year_params)
         format.html { redirect_to year_url(@year), notice: "Year was successfully updated." }

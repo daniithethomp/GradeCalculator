@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_test, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /tests or /tests.json
   def index
