@@ -1,29 +1,35 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @year %>
-
-<div>
-  <%= link_to "Edit this year", edit_year_path(@year) %> |
-  <%= link_to "Back to years", years_path %>
-
-  <%= button_to "Destroy this year", @year, method: :delete %>
-</div>
-
-<p>Total score: <%= @total_score.round(2) %>%</p>
-
-<% @modules.each do |m| %>
-  <div class="module">
-    <p>
-      <span class="module-name"><%= h "#{m.module_name}" %></span>
-      <%= link_to "Show", course_module_path(m), class: "utility-button", style: "display: inline"%>
-    </p>
-    <div class="score-bar">
-      <div class="bar-background">
-        <div class="bar" style="width: <%= get_module_score(m).round(2) %>%;">
-          <p><%= get_module_score(m).round(2)%>%</p>
-        </div>
+<div class="module">
+  <%= render @year %>
+  <div class="score-bar">
+    <div class="bar-background">
+      <div class="bar" style="width: <%= @total_score.round(2) %>%;">
+        <p><%= @total_score.round(2) %>%</p>
       </div>
     </div>
   </div>
+</div>
+<div class="button-wrapper">
+    <%= link_to "Add Module", new_course_module_path(:year_id => @year.id), class: "utility-button" %>
+    <%= link_to "Edit this year", edit_year_path(@year), class: "utility-button" %> 
+    <%= link_to "Back to years", years_path, class: "utility-button" %>
+</div>
+<br><%= button_to "Destroy this year", @year, method: :delete, class: "delete-button" %>
+<hr>
+<% @modules.each do |m| %>
+    <%= link_to course_module_path(m), class: "module hoverable", style: "display:block" do %>
+      <p>
+        <span class="module-name"><%= h "#{m.module_name}" %></span>
+      </p>
+      <div class="score-bar">
+        <div class="bar-background">
+          <div class="bar" style="width: <%= get_module_score(m).round(2) %>%;">
+            <p><%= get_module_score(m).round(2)%>%</p>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
-<%= link_to "Add Module", new_course_module_path(:year_id => @year.id), class: "utility-button" %>

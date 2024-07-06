@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  layout 'landing_page', only: [:new]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
     super
+    layout 'landing_page'
   end
 
   # POST /resource
@@ -15,9 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+    render layout: 'application'
+  end
 
   # PUT /resource
   # def update

@@ -26,10 +26,21 @@
 .module {
     background-color: var(--background-color);
     width: 80vw;
-    padding: 1rem;
+    padding: 2rem;
     margin: 1rem auto;
     text-align: center;
     border-radius: 1rem;
+}
+
+.hoverable:hover {
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.hoverable {
+    transition: 0.3s ease;
 }
 
 .score-bar {
@@ -46,13 +57,14 @@
 
 .bar {
     width: 80.84%;
-    background: green;
+    background: #20ca20;
     height: 100%;
     border-radius: 5px;
 }
 
 .bar p {
     float: right;
+    padding: 0.5rem 0;
 }
 
 .module-name {
@@ -61,7 +73,7 @@
 
 }
 
-.module-name a {
+a {
     text-decoration: none;
     color: black;
 }
@@ -99,4 +111,11 @@
     display: block;
     width: fit-content;
     border: none;
+    cursor: pointer;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%
 }
