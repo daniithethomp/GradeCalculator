@@ -15,7 +15,7 @@
   <div class="module">
     <p>
       <% if t.is_threshold %>
-        <%= link_to "#{t.name}", test_path(t) %>
+        <span class="module-name"><%= link_to "#{t.name}", test_path(t), class: "module-name"%></span>
         <% if t.pass %>
           <p style="color:green">
         <% else %>
@@ -23,7 +23,7 @@
         <% end %>
           <%= "#{t.pass ? "PASS" : "FAIL"}" %></p>
       <% else %>
-        <%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %>
+        <span class="module-name"><%= "#{t.name}" %></span><%= link_to "Show", test_path(t), style: "display:inline", class: "utility-button" %>
         <div class="score-bar">
           <div class="bar-background">
             <div class="bar" style="width: <%= get_test_score(t) %>%;">

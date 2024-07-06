@@ -13,44 +13,44 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <strong><%= form.label "Name:" %></strong>
     <%= form.text_field :name %>
-  </div>
+  </p>
 
-  <div>
+  <p>
     <% if @test.course_module_id.nil? %>
       <%= form.hidden_field :course_module_id, value: @module_id %>
     <% else %>
       <%= form.hidden_field :course_module_id, value: @test.course_module_id %>
     <% end %>
-  </div>
+  </p>
 
-  <div id="max_score_div">
-    <%= form.label :max_score, style: "display: block" %>
+  <p id="max_score_div">
+   <strong><%= form.label "Max score:" %></strong>
     <%= form.number_field :max_score %>
-  </div>
+  </p>
 
-  <div id="earned_score_div">
-    <%= form.label :earned_score, style: "display: block" %>
+  <p id="earned_score_div">
+    <strong><%= form.label "Earned score:" %></strong>
     <%= form.text_field :earned_score %>
-  </div>
+  </p>
 
-  <div>
-    <%= form.label :is_threshold?, style: "display: block" %>
-    <%= form.check_box :is_threshold %>
-  </div>
-
-  <div id="is_pass_div" style="display: none">
-    <%= form.label :pass?, style: "display: block" %>
-    <%= form.check_box :pass %>
-  </div>
-
-  <div id="weighting_div">
-    <%= form.label :weight, style: "display: block" %>
+  <p id="weighting_div">
+    <strong><%= form.label "Weight:" %></strong>
     <%= form.text_field :weight %>
-  </div>
+  </p>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <p>
+    <strong><%= form.label :is_threshold? %></strong>
+    <%= form.check_box :is_threshold %>
+  </p>
+
+  <p id="is_pass_div" style="display: none">
+    <strong><%= form.label :pass? %></strong>
+    <%= form.check_box :pass %>
+  </p>
+
+  <p>
+    <%= form.submit class: "utility-button" %>
+  </p>
 <% end %>

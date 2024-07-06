@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @test %>
+<div class="test-wrapper">
+  <%= render @test %>
 
-<div>
-  <%= link_to "Edit this test", edit_test_path(@test) %> |
-  <%= link_to "Back", course_module_path(@course_module) %>
-
-  <%= button_to "Destroy this test", @test, method: :delete %>
+  <div>
+    <%= link_to "Edit this test", edit_test_path(@test), class: "utility-button" %> 
+    <br>
+    <%= link_to "Back", course_module_path(@course_module), class: "utility-button" %>
+    <br>
+    <%= button_to "Destroy this test", @test, method: :delete, class: "delete-button" %>
+  </div>
 </div>
