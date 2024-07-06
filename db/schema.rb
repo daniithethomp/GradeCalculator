@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_05_225605) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_06_180413) do
   create_table "course_modules", force: :cascade do |t|
     t.string "module_name"
     t.integer "year_id", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_225605) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "target_score", default: 0.0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
