@@ -12,13 +12,28 @@
 </div>
 
 <% @module_tests.each do |t| %>
-  <p>
-    <% if t.is_threshold %>
-      <%= link_to "#{t.name} - #{t.pass ? "PASS" : "FAIL"}", test_path(t) %>
-    <% else %>
-      <%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %>
-    <% end %>
-  </p>
+  <div class="module">
+    <p>
+      <% if t.is_threshold %>
+        <%= link_to "#{t.name}", test_path(t) %>
+        <% if t.pass %>
+          <p style="color:green">
+        <% else %>
+          <p style="color:red">
+        <% end %>
+          <%= "#{t.pass ? "PASS" : "FAIL"}" %></p>
+      <% else %>
+        <%= link_to "#{t.name} - #{get_test_score(t)}%", test_path(t) %>
+        <div class="score-bar">
+          <div class="bar-background">
+            <div class="bar" style="width: <%= get_test_score(t) %>%;">
+              <p><%= get_test_score(t) %>%</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </p>
+  </div>
 <% end %>
 
-<%= link_to "Add test", new_test_path(:module_id => @course_module.id) %>
+<%= link_to "Add test", new_test_path(:module_id => @course_module.id), class: "utility-button" %>
