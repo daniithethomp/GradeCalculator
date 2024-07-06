@@ -1,1 +1,1 @@
-//= require_tree .
+//= (no)require_tree .
