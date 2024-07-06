@@ -19,8 +19,9 @@
 :root {
     --primary-color: rgb(34, 95, 248);
     --background-color: rgb(222, 222, 222);
-    --delete-color: red;
+    --red-color: red;
     --green-color: #20ca20;
+    --orange-color: #ecb81b;
     font-family: poppins;
 }
 
@@ -102,7 +103,7 @@ a {
 }
 
 .delete-button {
-    background-color: var(--delete-color);
+    background-color: var(--red-color);
     color: white;
     font-size: 1rem;
     padding: 0.5rem;
@@ -148,4 +149,12 @@ datalist {
     writing-mode: vertical-lr;
     width: 40%;
     margin: auto;
+}
+
+.target-mark {
+    height: 100%;
+    background: black;
+    width: 1%;
+    transform: translateY(-100%);
+    border-radius: 1%;
 }

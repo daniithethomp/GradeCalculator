@@ -30,9 +30,10 @@
         <p><span class="module-name"><%= h "#{t.name}" %></span></p>
         <div class="score-bar">
           <div class="bar-background">
-            <div class="bar" style="width: <%= get_test_score(t) %>%;">
+            <div class="bar" style="width: <%= get_test_score(t) %>%; background: var(--<%= get_score_colour(get_test_score(t).round(2)) %>-color)"">
               <p><%= get_test_score(t).round(2) %>%</p>
             </div>
+            <div class="target-mark" style="margin: 0 0 0 <%= current_user.target_score %>%" ></div>
           </div>
         </div>
       <% end %>
