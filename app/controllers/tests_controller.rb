@@ -20,6 +20,7 @@ class TestsController < ApplicationController
 
   # GET /tests/1/edit
   def edit
+    @course_module = CourseModule.find(@test.course_module_id)
   end
 
   # POST /tests or /tests.json
@@ -52,10 +53,11 @@ class TestsController < ApplicationController
 
   # DELETE /tests/1 or /tests/1.json
   def destroy
+    @course_module = CourseModule.find(@test.course_module_id)
     @test.destroy!
 
     respond_to do |format|
-      format.html { redirect_to tests_url, notice: "Test was successfully destroyed." }
+      format.html { redirect_to course_module_path(@course_module), notice: "Test was successfully destroyed." }
       format.json { head :no_content }
     end
   end

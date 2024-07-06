@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let max_score = document.getElementById('max_score_div');
     let earned_score = document.getElementById('earned_score_div');
     let is_pass = document.getElementById('is_pass_div');
+    let weighting = document.getElementById('weighting_div');
 
     toggleThresholdTest();
 
@@ -13,10 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
         if (threshholdtestcheckbox.checked) {
             max_score.style.display = "none";
             earned_score.style.display = "none";
+            weighting.style.display = "none";
             is_pass.style.display = "block";
         } else {
             max_score.style.display = "block";
             earned_score.style.display = "block";
+            weighting.style.display = "block";
             is_pass.style.display = "none";
         }
     }
