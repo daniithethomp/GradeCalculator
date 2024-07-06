@@ -5,7 +5,7 @@
   <div class="score-bar">
     <div class="bar-background">
       <div class="bar" style="width: <%= get_module_score(@course_module) %>%;">
-        <p><%= get_module_score(@course_module) %>%</p>
+        <p><%= get_module_score(@course_module).round(2) %>%</p>
       </div>
     </div>
   </div>
@@ -17,28 +17,26 @@
 </div>
 
 <% @module_tests.each do |t| %>
-  <div class="module">
-    <p>
+  <%= link_to test_path(t), class: "module hoverable", style: "display:block" do %>
       <% if t.is_threshold %>
-        <span class="module-name"><%= link_to "#{t.name}", test_path(t), class: "module-name"%></span>
+        <p><span class="module-name"><%= h "#{t.name}" %></span></p>
         <% if t.pass %>
-          <p style="color:green">
+          <strong style="color:var(--green-color)">
         <% else %>
-          <p style="color:red">
+          <strong style="color:red">
         <% end %>
-          <%= "#{t.pass ? "PASS" : "FAIL"}" %></p>
+          <%= "#{t.pass ? "PASS" : "FAIL"}" %></strong>
       <% else %>
-        <span class="module-name"><%= "#{t.name}" %></span><%= link_to "Show", test_path(t), style: "display:inline", class: "utility-button" %>
+        <p><span class="module-name"><%= h "#{t.name}" %></span></p>
         <div class="score-bar">
           <div class="bar-background">
             <div class="bar" style="width: <%= get_test_score(t) %>%;">
-              <p><%= get_test_score(t) %>%</p>
+              <p><%= get_test_score(t).round(2) %>%</p>
             </div>
           </div>
         </div>
       <% end %>
-    </p>
-  </div>
+  <% end %>
 <% end %>
 
 <%= link_to "Add test", new_test_path(:module_id => @course_module.id), class: "utility-button" %>

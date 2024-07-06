@@ -20,6 +20,7 @@
     --primary-color: rgb(34, 95, 248);
     --background-color: rgb(222, 222, 222);
     --delete-color: red;
+    --green-color: #20ca20;
     font-family: poppins;
 }
 
@@ -57,7 +58,7 @@
 
 .bar {
     width: 80.84%;
-    background: #20ca20;
+    background: var(--green-color);
     height: 100%;
     border-radius: 5px;
 }

@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Years</h1>
-
 <div id="years">
   <% @years.each do |year| %>
-    <%= render year %>
-    <p>
-      <%= link_to "Show this year", year %>
-    </p>
+    <%= link_to year, style: "display:block", class: "module hoverable" do %>
+      <%= render year %>
+      <div class="score-bar">
+        <div class="bar-background">
+          <div class="bar" style="width: <%= get_year_score(year).round(2) %>%;">
+            <p><%= get_year_score(year).round(2) %>%</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
 
-<%= link_to "New year", new_year_path %>
+<%= link_to "New year", new_year_path, class: "utility-button" %>
