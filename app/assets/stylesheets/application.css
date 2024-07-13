@@ -93,6 +93,8 @@ a {
     width: fit-content;
     border: none;
     cursor: pointer;
+    min-width: 3rem;
+    text-align: center;
 }
 
 .test-wrapper {
@@ -168,4 +170,8 @@ nav li {
 nav ul {
     display: flex;
     justify-content: flex-end;
+}
+
+nav h1 {
+    float: left;
 }

@@ -11,10 +11,14 @@
   </div>
 </div>
 
-<div>
+<div class="button-wrapper">
   <%= link_to "Edit", edit_course_module_path(@course_module), class: "utility-button" %>
+  <%= link_to "Add test", new_test_path(:module_id => @course_module.id), class: "utility-button" %>
   <%= link_to "Back", year_path(@year), class: "utility-button" %>
 </div>
+<br>
+<%= button_to "Remove Module", @course_module, method: :delete, class: "delete-button" %>
+<hr>
 
 <% @module_tests.each do |t| %>
   <%= link_to test_path(t), class: "module hoverable", style: "display:block" do %>
@@ -39,7 +43,3 @@
       <% end %>
   <% end %>
 <% end %>
-
-<%= link_to "Add test", new_test_path(:module_id => @course_module.id), class: "utility-button" %>
-<br>
-<%= button_to "Remove Module", @course_module, method: :delete, class: "delete-button" %>
