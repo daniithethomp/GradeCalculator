@@ -2,6 +2,10 @@
 
 :root {
     --primary-color: rgb(34, 95, 248);
+    --background-color: rgb(222, 222, 222);
+    --red-color: red;
+    --green-color: #20ca20;
+    --orange-color: #ecb81b;
     font-family: poppins;
 }
 
@@ -60,4 +64,20 @@ a {
     width: fit-content;
     margin: 0.5rem auto;
     border-radius: .5rem;
+}
+
+.secondary-button {
+    background-color: white;
+    font-size: 1rem;
+    color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    border: none;
+    cursor: pointer;
+    min-width: 3rem;
+    text-align: center;
 }
