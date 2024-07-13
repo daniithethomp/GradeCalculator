@@ -13,18 +13,18 @@ class Ability
     return unless user.present?
 
     can :create, Year
-    can [:read, :update, :delete], Year do |year|
+    can [:read, :update, :destroy], Year do |year|
       year.user_id == user.id
     end
 
     can :create, CourseModule
-    can [:read, :update, :delete], CourseModule do |course_module|
+    can [:read, :update, :destroy], CourseModule do |course_module|
       year = Year.find(course_module.year_id)
       year.user_id == user.id
     end
 
     can :create, Test
-    can [:read, :update, :delete], Test do |test|
+    can [:read, :update, :destroy], Test do |test|
       Year.find(CourseModule.find(test.course_module_id).year_id).user_id == user.id
     end
 

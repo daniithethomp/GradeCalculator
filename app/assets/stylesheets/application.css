@@ -159,3 +159,13 @@ datalist {
     transform: translateY(-100%);
     border-radius: 1%;
 }
+
+nav li {
+    list-style-type: none;
+    margin: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+}

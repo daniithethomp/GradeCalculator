@@ -1,12 +1,7 @@
-<h1>GradeCalculator</h1>
 <nav>
     <ul>
-        <% if user_signed_in? %>
-            <li><%= button_to "Log Out", destroy_user_session_path, method: :delete %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Years", years_path %></li>
-        <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-        <% end %>
+        <h1><%= link_to "GradeCalculator", root_path %></h1>
+        <li><%= link_to "Edit Profile", edit_user_registration_path, class: "utility-button" %></li>
+        <li><%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "delete-button" %></li>
     </ul>
 </nav>

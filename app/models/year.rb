@@ -1,4 +1,4 @@
 class Year < ApplicationRecord
   belongs_to :user
-  has_many :course_modules
+  has_many :course_modules, dependent: :destroy
 end
