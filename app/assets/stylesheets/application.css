@@ -175,3 +175,7 @@ nav ul {
 nav h1 {
     float: left;
 }
+
+li {
+    list-style-type: none;
+}
