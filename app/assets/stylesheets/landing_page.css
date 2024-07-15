@@ -9,6 +9,10 @@
     font-family: poppins;
 }
 
+body {
+    margin: 0;
+}
+
 #grid-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,7 +20,7 @@
 }
 
 .left-side {
-    background-color: white;
+    background-color: var(--background-color);
     grid-column: 1;
     text-align: center;
     height: 100vh;
