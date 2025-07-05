@@ -7,14 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag "styles", "data-turbo-track": "reload" %>
-    <%= javascript_pack_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
     <header>
       <%= render "layouts/header" %>
     </header>
-    <p class="alert"><%= alert %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

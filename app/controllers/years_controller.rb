@@ -1,6 +1,5 @@
 class YearsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_year, only: %i[ show edit update destroy ]
   load_and_authorize_resource
 
   # GET /years or /years.json
@@ -34,6 +33,7 @@ class YearsController < ApplicationController
   # GET /years/new
   def new
     @year = Year.new
+    render layout: false
   end
 
   # GET /years/1/edit

@@ -1,5 +1,17 @@
 <p style="color: green"><%= notice %></p>
+<h3 class="m-1">Years</h3>
+<hr>
+<div class="d-flex">
+  <form class="d-flex me-auto ms-2" role="search">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+  <%= link_to "Add Year", new_year_path, class: "btn btn-primary me-2", data: { toggle: 'ajax-modal' } %>
+</div>
 <div id="years">
+  <% if @years.empty? %>
+    <p>You have no years. Create a Year to get started.</p>
+  <% end %>
   <% @years.each do |year| %>
     <%= link_to year, style: "display:block", class: "module hoverable" do %>
       <%= render year %>
@@ -14,5 +26,3 @@
     <% end %>
   <% end %>
 </div>
-
-<%= link_to "New year", new_year_path, class: "utility-button" %>

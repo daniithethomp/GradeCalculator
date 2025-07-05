@@ -13,6 +13,11 @@
 //
 // const images = require.context('./images', true)
 // const imagePath = (name) => images(name, true)
-
+import Rails from "@rails/ujs";
+import { AjaxModal } from '@epigenesys/epi-js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
+
+Rails.start();
+AjaxModal.start();

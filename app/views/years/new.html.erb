@@ -1,10 +1,16 @@
-<h1>New year</h1>
-<div class="module">
-<%= render "form", year: @year %>
-
-<br>
-
-<div>
-  <%= link_to "Back to years", years_path, class: "utility-button" %>
-</div>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">New Year</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+              data-action="click->modal#close"></button>
+    </div>
+    <div class="modal-body">
+      <%= render "form", year: @year %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-action="click->modal#close">Close</button>
+      <%= button_to "Save", years_path, method: :post, form: { data: { turbo_frame: "modal" } }, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
