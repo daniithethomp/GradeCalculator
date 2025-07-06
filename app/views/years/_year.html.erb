@@ -1,6 +1,11 @@
-<div id="<%= dom_id year %>">
-  <p>
-    <strong class="module-name">Year
-    <%= year.year_number %></strong>
-  </p>
+<div id="<%= dom_id year %>" class="bg-body border m-2 rounded p-2 shadow">
+  <p class="h3 text-center fw-bold">Year <%= year.year_number %></p>
+  <div class="score-bar d-flex justify-content-center my-4 px-5">
+    <div class="bar-background rounded">
+      <div class="bar rounded" style="width: <%= get_year_score(year).round(2) %>%; background: var(--<%= get_score_colour(get_year_score(year).round(2)) %>-color)">
+        <p><%= get_year_score(year).round(2) %>%</p>
+      </div>
+      <div class="target-mark" style="margin: 0 0 0 <%= current_user.target_score %>%" ></div>
+    </div>
+  </div>
 </div>

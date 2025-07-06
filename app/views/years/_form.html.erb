@@ -1,4 +1,4 @@
-<%= form_for(:year) do |form| %>
+<%= form_with(model: @year) do |form| %>
   <% if @year && @year.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(year.errors.count, "error") %> prohibited this year from being saved:</h2>

@@ -1,0 +1,34 @@
+:root {
+  --primary-color: rgb(34, 95, 248);
+  --background-color: rgb(222, 222, 222);
+  --red-color: red;
+  --green-color: #20ca20;
+  --orange-color: #ecb81b;
+}
+
+a {
+  text-decoration: none;
+  color: var(--bs-heading-color);
+}
+
+.score-bar {
+  width: 100%;
+  height: 50px;
+}
+
+.bar-background {
+  background: var(--bs-gray-200);
+  width: 100%;
+  height: 100%;
+}
+
+.bar {
+  width: 80.84%;
+  background: var(--green-color);
+  height: 100%;
+}
+
+.bar p {
+  float: right;
+  transform: translate(25px,50px);
+}

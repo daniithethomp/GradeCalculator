@@ -13,16 +13,8 @@
     <p>You have no years. Create a Year to get started.</p>
   <% end %>
   <% @years.each do |year| %>
-    <%= link_to year, style: "display:block", class: "module hoverable" do %>
+    <%= link_to year do %>
       <%= render year %>
-      <div class="score-bar">
-        <div class="bar-background">
-          <div class="bar" style="width: <%= get_year_score(year).round(2) %>%; background: var(--<%= get_score_colour(get_year_score(year).round(2)) %>-color)">
-            <p><%= get_year_score(year).round(2) %>%</p>
-          </div>
-          <div class="target-mark" style="margin: 0 0 0 <%= current_user.target_score %>%" ></div>
-        </div>
-      </div>
     <% end %>
   <% end %>
 </div>
